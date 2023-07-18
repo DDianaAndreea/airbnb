@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import React from 'react'
 
 function SmallCard({img,location,distance}) {
@@ -9,6 +9,7 @@ function SmallCard({img,location,distance}) {
             src={img}
             layout='fill'
             className='rounded-lg'
+            alt=''
         />
         </div>
         <div>

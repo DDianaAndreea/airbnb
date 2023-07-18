@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import React from 'react'
 
 function Banner() {
@@ -7,7 +7,8 @@ function Banner() {
         <Image
         src='https://luxurylaunches.com/wp-content/uploads/2022/05/omg-airbnb.jpg'
         layout='fill'
-        objectFit='cover' />
+        objectFit='cover' 
+        alt=''/>
 
         <div className='absolute top-1/2 w-full text-center'>
             <p className='text-sm sm:text-lg text-white'>Not sure where to go? Perfect.</p>

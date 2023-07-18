@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { MagnifyingGlassCircleIcon,GlobeAltIcon,Bars3Icon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 function Header() {
@@ -14,6 +14,7 @@ function Header() {
                 layout='fill'
                 objectFit='contain'
                 objectPosition='left'
+                alt=''
             />
         </div>
 
