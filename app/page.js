@@ -1,95 +1,70 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Banner from '@/components/Banner'
+import MediumCards from '@/components/MediumCards';
+import Header from '@/components/Header'
+import SmallCard from '@/components/SmallCard';
+import { uuid } from 'uuidv4';
+import LargeCard from '@/components/LargeCard';
+import Footer from '@/components/Footer';
+
+const exploreData = [{"img":"https://links.papareact.com/5j2","location":"London","distance":"45-minute drive"},{"img":"https://links.papareact.com/1to","location":"Manchester","distance":"4.5-hour drive"},{"img":"https://links.papareact.com/40m","location":"Liverpool","distance":"4.5-hour drive"},{"img":"https://links.papareact.com/msp","location":"York","distance":"4-hour drive"},{"img":"https://links.papareact.com/2k3","location":"Cardiff","distance":"45-minute drive"},{"img":"https://links.papareact.com/ynx","location":"Birkenhead","distance":"4.5-hour drive"},{"img":"https://links.papareact.com/kji","location":"Newquay","distance":"6-hour drive"},{"img":"https://links.papareact.com/41m","location":"Hove","distance":"2-hour drive"}];
+const cardsData = [{"img":"https://links.papareact.com/2io","title":"Outdoor getaways"},{"img":"https://links.papareact.com/q7j","title":"Unique stays"},{"img":"https://links.papareact.com/s03","title":"Entire homes"},{"img":"https://links.papareact.com/8ix","title":"Pet allowed"}]
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+       <div className=''>
+        <Header />
+        <Banner />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <main className='max-w-7xl mx-auto px-8 sm:px-16'>
+          <section className='pt-6'>
+            <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 xl:grid-cols-4'>
+              {exploreData.map(item=>(
+                <SmallCard 
+                  key={uuid()}
+                  img={item.img}
+                  distance={item.distance}
+                  location={item.location}
+                  />
+              ))}
+            </div>
+          </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <section className='pt-6'>
+            <h2  className='text-4xl font-semibold py-8'>Live Anywhere </h2>
+            
+            <div className='flex  space-x-3  p-3 -ml-3 overflow-scroll scrollbar-hide'>
+              {cardsData.map(item=>(
+                <MediumCards 
+                  key={uuid()}
+                  img={item.img}
+                  title={item.title}
+                  />
+              ))}
+            </div>
+          </section >
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+          <section className='pt-6'>
+                <LargeCard 
+                img="https://links.papareact.com/4cj"
+                title='The Gratest Outdoors'
+                description='Wishlist curated by Airbnb.'
+                buttonText='Get Inspired'
+                />
+          </section>
+        </main>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Footer />
+       </div>
   )
 }
+
+
+// export async function getStaticProps(){
+//   const exploreData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
+//     (res)=>res.json()
+//   )
+
+//   return {props:{exploreData}}
+// }
