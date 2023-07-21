@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Map, {Marker,Popup} from 'react-map-gl'
 import { getCenter } from 'geolib'
-import { MapPinIcon } from '@heroicons/react/24/solid';
 
 function MapComponent({ searchResults }) {
   //transform searchResult obj into the {latitude:x, longitude:y} object
@@ -15,7 +14,7 @@ function MapComponent({ searchResults }) {
 
   return <Map 
     mapStyle='mapbox://styles/dianadragan/clkcjiifd001o01qphb4mdpdu'
-    mapboxAccessToken={process.env.mapbox_key}
+    mapboxAccessToken={'pk.eyJ1IjoiZGlhbmFkcmFnYW4iLCJhIjoiY2xrY2phYXZwMDFybjNqbHZkbW1xaXh0aSJ9.9yrZU3zzAlwCkHgY7XXvMA'}
     initialViewState={{
         longitude: center.longitude,
         latitude: center.latitude,
